@@ -8,6 +8,35 @@ router.get('/', async (_, res) => {
   res.send(todos);
 });
 
+/* GET single todo */
+router.get('/:id', async (req, res) => {
+	const id = req.params.id;
+	const todo = await Todo.findOne({
+		_id: id
+	});
+	console.log(id);
+	console.log('TODO',todo);
+	res.send(todo);
+});
+
+/* PUT update todo */
+router.put('/:id', async (req, res) => {
+	const id = req.params.id;
+	const { text, done } = req.body;
+
+	try {
+		const updatedTodo = await Todo.updateOne(
+			{_id: id}, // Filter
+			{text,
+			done}	
+		);
+		res.send(updatedTodo)
+	} catch (error) {
+		res.status(401).send({error: `An error occured ${error.message}`})
+	}
+
+});
+
 /* POST todo to listing. */
 router.post('/', async (req, res) => {
   const todo = await Todo.create({
