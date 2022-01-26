@@ -5,7 +5,7 @@ const {getAsync} = require('../redis');
 router.get('/', async (_, res) => {
 	const todosCounter = await getAsync('added_todos');
 	res.send({
-		added_todos: todosCounter
+		added_todos: todosCounter ? todosCounter : 0
 	})
 });
 
