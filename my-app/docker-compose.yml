@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  front-end:
+    image: bloglist-frontend-prod
+    build:
+      context: ./frontend
+      # Dockerfile will be recognized automatically
+    ports:
+      - 3000:80
+    container_name: bloglist-frontend-prod
+  
+  back-end:
+    image: bloglist-backend-prod
+    build:
+      context: ./backend
+    ports:
+      - 3002:3002
+    container_name: bloglist-backend-prod
+
+
+  # nginx:
+  #   image: nginx:1.20.1
+  #   volumes:
+  #     - ./nginx.conf:/etc/nginx/nginx.conf:ro
+  #   ports:
+  #     - 8000:80
+  #   container_name: bloglist-reverse-proxy

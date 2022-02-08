@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  front-end:
+    image: bloglist-front-dev
+    build:
+      context: ./frontend/
+      dockerfile: ./dev.Dockerfile
+    volumes:
+      - ./frontend/:/usr/src/app
+    ports:
+      - 3000:3000
+    container_name: bloglist-front-dev
+    
+  back-end:
+    image: bloglist-backend
+    build:
+      context: ./backend
+      dockerfile: ./dev.Dockerfile
+    ports:
+      - 3002:3002
+    container_name: bloglist-backend-dev
+
+  # nginx:
+  #   image: nginx:1.20.1
+  #   volumes:
+  #     - ./nginx.conf:/etc/nginx/nginx.conf:ro
+  #   ports:
+  #     - 8000:80
+  #   container_name: bloglist-reverse-proxy
