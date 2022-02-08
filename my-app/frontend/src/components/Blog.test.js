@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react'
 import '@testing-library/jest-dom/extend-expect'
 import { render, fireEvent } from '@testing-library/react'
@@ -72,3 +73,4 @@ describe('Blog functionality', () => {
 		expect(mockHandler.mock.calls).toHaveLength(2)
 	})
 })
+/* eslint-disable */

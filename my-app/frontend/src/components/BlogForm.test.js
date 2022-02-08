@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react'
 import '@testing-library/jest-dom/extend-expect'
 import { render, fireEvent } from '@testing-library/react'
@@ -34,3 +35,4 @@ test('creating a new blog with the right details', () => {
 	expect(result.author).toBe('Didzis Zvaigzne')
 	expect(result.url).toBe('didzis.net')
 })
+/* eslint-disable */

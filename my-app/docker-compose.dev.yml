@@ -21,10 +21,10 @@ services:
       - 3002:3002
     container_name: bloglist-backend-dev
 
-  # nginx:
-  #   image: nginx:1.20.1
-  #   volumes:
-  #     - ./nginx.conf:/etc/nginx/nginx.conf:ro
-  #   ports:
-  #     - 8000:80
-  #   container_name: bloglist-reverse-proxy
+  nginx:
+    image: nginx:1.20.1
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - 8000:80
+    container_name: bloglist-reverse-proxy
